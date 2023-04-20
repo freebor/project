@@ -1,0 +1,397 @@
+/* importing google fonts */
+@import url('https://fonts.googleapis.com/css2?family=poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--dark);
+}
+
+body{
+    background-color: var(--dark);
+    transition: var(--trans-04);
+}
+
+.verse-chapter-hold.activeVerse,
+.testament.activeTestament,
+.book-chapter-hold.activeBookChapter,
+.new-chapters.activeNewChapter,
+.old-chapters.activeOldChapter{
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.verse-chapter-hold,
+.testament,
+.old-chapters,
+.new-chapters,
+.book-chapter-hold{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2),
+                0px 6px 20px 0 rgba(0, 0, 0, 0.19);
+                transition: all 0.3s ease;
+
+}
+
+
+.home-page{
+    height: 100vh;
+    width: 100%;
+    /* opacity: 0;
+    pointer-events: none; */
+    /* border: 1px solid black; */
+}
+.home-page .bible-nav{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10%;
+}
+.home-page .bible-nav .bible-button{
+    padding: 10px 15px;
+    user-select: none;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: 700;
+    background-color: var(--sidebar-color);
+    border: none;
+    font-size: 16px;
+}
+.home-page .bible-nav .bible-button:hover{
+    background-color: var(--text-blue);
+    transition: var(--trans-04);
+    color: var(--border-line);
+}
+
+.intro-body{
+    height: 80%;
+    padding: 30px 0px;
+}
+
+.intro-body .daily-quote{
+    margin: auto;
+    width: 70%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+    grid-gap: 30px;
+}
+
+.bd{
+    border: 1px solid #fff;
+}
+
+.daily-quote .image-quote img{
+    width: 100%;
+    height: 100%;
+    transition: var(--trans-04);
+}
+.daily-quote .text-quote{
+    display: flex;
+    background-color: var(--light);
+    align-items: center;
+}
+.text-quote .verse{
+    height: 50%;
+    padding: 0px 30px;
+}
+.verse > p{
+    font-weight: 600;
+    font-size: 22px;
+}
+.verse .tiny{
+    font-size: 12px;
+    font-weight: 100;
+}
+.verse h4{
+    font-weight: 500;
+}
+
+
+@media (max-width:850px) {
+    .daily-quote .text-quote{
+        display: flex;
+        background-color: var(--light);
+        align-items: center;
+    }
+
+    .text-quote .verse{
+        height: 70%;
+        padding: 0px 30px;
+        padding-top: -20px;
+    }
+    .intro-body .daily-quote{
+        /* margin: auto; */
+        width: 70%;
+        height: 100%;
+        display: grid;
+        /* border: 3px solid black; */
+        /* padding: 30px 0px; */
+        grid-template-columns: 1fr;
+        /* grid-auto-rows: minmax(300px, auto); */
+        grid-auto-rows: auto;
+        grid-gap: 30px;
+    }   
+}
+/* @media (max-width:900px) {
+    .intro-body{
+        height: 45%;
+        padding: 10px 0px;
+    }    
+} */
+
+
+/* NEW & OLD TESTAMENT SECTION  */
+.testament{
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+    grid-gap: 5px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 200px;
+    width: 400px;
+    background-color: var(--light);
+    border-radius: 10px;
+}
+.testament > button{
+    height: 50px;
+    width: 70%;
+    border: none;
+    font-size: 22px;
+    color: var(--dark);
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    /* background-color: black; */
+}
+.testament button:hover{
+    color: var(--text-blue);
+}
+
+.old-chapters{
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+    display: flex;
+    height: 500px;
+    width: 500px;
+    border: 1px solid black;
+    flex-direction: column;
+    border-radius: 10px;
+    background: var(--light);
+}
+
+.old-chapters .butt-hold{
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    grid-gap: 10px;
+    width: 100%;
+    overflow: auto;
+    margin-top: 10px;
+}
+
+.butt-hold2 button,
+.butt-hold button{
+    background: var(--light);
+    font-weight: 600;
+    border: none;
+    /* padding: 10px 15px; */
+    display: flex;
+    font-size: 20px;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    height: 100%;
+    width: 100%;
+}
+
+
+.txt{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    /* border: 3px solid black; */
+}
+
+
+.txt:hover,
+.icon:hover,
+.butt-hold2 button:hover,
+.butt-hold button:hover{
+    background-color: aqua;
+    color: #fff;
+}
+
+.old-chapters h2{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 16%;
+    background: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* new chapter section  */
+.new-chapters{
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+    display: flex;
+    height: 500px;
+    width: 500px;
+    border: 1px solid black;
+    flex-direction: column;
+    border-radius: 10px;
+    background: var(--light);
+}
+
+.new-chapters h2{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 16%;
+    background: aqua;
+    /* padding: 20px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-chapters .butt-hold2{
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 100%;
+    overflow: auto;
+    margin-top: 10px;
+}
+
+
+/* .sidebar li a{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--trans-04);
+    color: var(--text-color);
+} */
+
+
+/* Book Chapter section */
+.book-chapter-hold{
+    width: 450px;
+    height: 500px;
+    border-radius: 10px;
+    background: var(--light);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.book-chapter-hold h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 17%;
+    font-size: 30px;
+    font-weight: 600;
+    border-radius: 10px;
+    width: 90%;
+    background-color: var(--dark);
+    color: #fff;
+    margin: 20px auto;
+    user-select: none;
+}
+
+.book-chapter-hold .chapters-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    margin-top: 15%;
+    padding: 0px 20px;
+}
+.chapters-wrapper div{
+    border: 2px solid var(--dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+}
+.chapters-wrapper div:hover{
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+/* verses section  */
+.verse-chapter-hold{
+    width: 450px;
+    height: 500px;
+    border-radius: 10px;
+    background: var(--light);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+.verse-chapter-hold .verse-header{
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: space-between;
+    height: 17%;
+    border-radius: 10px;
+    width: 90%;
+    background-color: var(--dark);
+    margin: 20px auto;
+    user-select: none;
+}
+
+.verse-header div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.verse-header h3,
+.verse-header h2,
+.verse-header span{
+    font-weight: 600;
+    color: #fff;
+    
+}
+.f-icon{
+    display: flex;
+    justify-content: center;
+    color: var(--light);
+    cursor: pointer;
+    margin: 0px 10px;
+}
+.f-icon:hover{
+    color: var(--text-blue);
+}
+
+.verse-wrapper{
+    padding: 0px 15px;
+    height: 73%;
+    overflow: auto;
+}
