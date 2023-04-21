@@ -30,6 +30,12 @@ image of the chapter wireframe
 image of the chapter wireframe
 ![image alt](./UI-UX/3testament%20lists.png)
 
+## Technologies Used
+
+* JavaScript
+* CSS
+* HTML
+
 <!-- ctrl k and v is used to open readme live server -->
 <!-- '-' or '*' is used to create bullet points -->
 <!-- ![image alt](imageName.png) is used to add an image -->
