@@ -309,14 +309,16 @@ body{
     align-items: center;
     justify-content: center;
     height: 17%;
-    font-size: 30px;
-    font-weight: 600;
     border-radius: 10px;
     width: 90%;
-    background-color: var(--light);
-    color: #fff;
+    background-color: var(--dark);
     margin: 20px auto;
     user-select: none;
+}
+#book-title{
+    font-weight: 600;
+    font-size: 30px;
+    color: #fff;
 }
 
 .book-chapter-hold .chapters-wrapper{
@@ -366,7 +368,7 @@ body{
     user-select: none;
 }
 
-.verse-header div{
+.verse-header .verse-head-tag{
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -8,13 +8,23 @@ const newTestamentBtn = testament.querySelector('.new-testament');
 const oldTestamentoption = document.querySelector('.old-chapters');
 const newTestamentoption = document.querySelector('.new-chapters');
 const bookChapter = document.querySelector('.book-chapter-hold');
+const verses = document.querySelector('.verse-chapter-hold');
+
 
 // To change images when page loads
 window.addEventListener('load', ()=>{
   let images = document.getElementById('myImage');
+  let text = [
+    'Then Jesus declared, "I am the bread of life. Whoever comes to me will never go hungry, and whoever believes in me will never be thirsty. ',
+
+    "So be careful to live your life wisely, not foolishly.  Ephesians 5:15",
+
+    "Don't judge according to appearances. Judge with right judgment. John 7:24",
+
+    "Mercy unto you, and peace and love be multiplied."
+  ]
   let img = [
       'img7.jpg',
-      'img6.jpg',
       'img5.jpg',
       'img4.jpg',
       'img3.jpg',
@@ -50,6 +60,7 @@ newTestamentBtn.addEventListener('click', ()=>{
 });
 
 let pageCounter = 0;
+let verseCount = 0 ;
 // let chapcounter = 0;
 
 // this was called in from my json file
@@ -76,17 +87,34 @@ function showTestament(index){
 };
 
 const bookSelected = (chap)=>{
+  console.log(chap);
   oldTestamentoption.classList.remove('activeOldChapter');
   bookChapter.classList.add('activeBookChapter');
-  let chapHead = document.querySelector('.chap-head');
+  let chapHead = document.querySelector('#book-title');
+  console.log("head",chapHead);
   let chapWrap = document.querySelector('.chapters-wrapper');
-  let bibleBook = '<h2>'+ oldBibleChapter[chap].bibleBookName[0] +'</h2>';
 
-  // oldBibleChapter[chap].bibleBookName.sort();
-  
-  // for (let i = 0; i < oldBibleChapter[chap].bibleBookName.length; i++) {
-  //   bibleBook = '<h2>'+ oldBibleChapter[chap].bibleBookName[i] +'</h2>';
-  // }
+  let chapter = "";
 
-  chapHead.innerHTML = bibleBook;
+  for (let i = 0; i < bibleChapter[0].chapter.length; i++) {
+    chapter += '<div class="num">'+ bibleChapter[0].chapter[i] +'</div>' 
+  }
+  chapHead.innerHTML = chap.innerText;
+  chapWrap.innerHTML = chapter;
+  let verseSelect = chapWrap.querySelectorAll('.num');
+  console.log("verse",verseSelect);
+  for (let i = 0; i < verseSelect.length; i++) {
+    verseSelect[i].setAttribute("onclick", 'chapSelected(verseCount)');
+  }
 };
+
+const chapSelected = (verse) =>{
+  bookChapter.classList.remove('activeBookChapter');
+  verses.classList.add('activeVerse');
+  let verseHeadTag = document.querySelector('.verse-head-tag');
+  let verseWrap = document.querySelector('.verse-wrapper');
+  let verseHead = '';
+
+ 
+  verseHeadTag.innerHTML = verseHead;
+}
