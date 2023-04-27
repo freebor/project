@@ -1,7 +1,7 @@
 // getting all required element 
 const homePage = document.querySelector('.home-page');
 const bibleButton = homePage.querySelector('.bible-button');
-
+const oldBookList = document.querySelectorAll('.butt-hold');
 const testament = document.querySelector('.testament');
 const oldTestamentBtn = testament.querySelector('.old-testament');
 const newTestamentBtn = testament.querySelector('.new-testament');
@@ -35,41 +35,58 @@ bibleButton.addEventListener('click', ()=>{
 oldTestamentBtn.addEventListener('click', ()=>{
   oldTestamentoption.classList.add('activeOldChapter');
   testament.classList.remove('activeTestament');
-  showTestament();
+  showTestament(0);
+  // chapHold(0);
 });
 
 // To open the new testament 
 newTestamentBtn.addEventListener('click', ()=>{
-  newTestamentoption.classList.add('activeNewChapter');
-  oldTestamentoption.classList.remove('activeOldChapter');
+  oldTestamentoption.classList.add('activeOldChapter');
+
+  if (pageCounter < testOpt.length -1) {
+    pageCounter++;
+    showTestament(pageCounter);
+  }
 });
 
+let pageCounter = 0;
+// let chapcounter = 0;
 
-// This is used to sort the books of the bible 
-const oldBookList = document.querySelectorAll('.butt-hold button');
-const newBookList = document.querySelectorAll('.butt-hold2 button');
-
-const oldSortedList = Array.from(oldBookList).sort((a, b) => a.textContent.localeCompare(b.textContent));
-const newSortedList = Array.from(newBookList).sort((a, b) => a.textContent.localeCompare(b.textContent));
-
-const newButtonTxt = document.querySelector('.butt-hold2');
-newButtonTxt.innerHTML = '';
-const oldButtonTxt = document.querySelector('.butt-hold');
-oldButtonTxt.innerHTML = '';
-
-newSortedList.forEach(button => {
-  newButtonTxt.appendChild(button);
-});
-oldSortedList.forEach(button => {
-  oldButtonTxt.appendChild(button);
-});
-
-
-let pagecouter = 0;
-
-const showTestament = ()=>{
+// this was called in from my json file
+function showTestament(index){
   let oldTestament = document.querySelector('.test');
-  let testHead = '<h2>'+ testament[0].oldTestName +'</h2>';
+  let bibleBookHold = document.querySelector('.butt-hold');
+  let testHead = '<h2>'+ testOpt[index].TestName +'</h2>';
+  let bibleBookList = "";
+  
+  // This is used to sort the books of the bible 
+  testOpt[index].bookName.sort();
+  
+  // this is used to loop the array bookName
+  for (let i = 0; i < testOpt[index].bookName.length; i++) {
+    bibleBookList += '<button><span class="txt">'+ testOpt[index].bookName[i] +'<i class="icon fa-solid fa-angle-right"></i></span></button>'
+  }
+  
   oldTestament.innerHTML = testHead;
-}
+  bibleBookHold.innerHTML = bibleBookList;
+  let chapSelect = bibleBookHold.querySelectorAll('.txt');
+  for (let i = 0; i < chapSelect.length; i++) {
+    chapSelect[i].setAttribute("onclick", 'bookSelected(this)');
+  }
+};
 
+const bookSelected = (chap)=>{
+  oldTestamentoption.classList.remove('activeOldChapter');
+  bookChapter.classList.add('activeBookChapter');
+  let chapHead = document.querySelector('.chap-head');
+  let chapWrap = document.querySelector('.chapters-wrapper');
+  let bibleBook = '<h2>'+ oldBibleChapter[chap].bibleBookName[0] +'</h2>';
+
+  // oldBibleChapter[chap].bibleBookName.sort();
+  
+  // for (let i = 0; i < oldBibleChapter[chap].bibleBookName.length; i++) {
+  //   bibleBook = '<h2>'+ oldBibleChapter[chap].bibleBookName[i] +'</h2>';
+  // }
+
+  chapHead.innerHTML = bibleBook;
+};

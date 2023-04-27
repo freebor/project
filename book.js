@@ -1,10 +1,9 @@
 // creating an Array where if each book of the bible is clicked it should display the book with its 10 chapters
-
-let testament = [
+let testOpt = [
     {
         numb : 1, 
-        oldTestName : "Old Testament",
-        oldBookName : [
+        TestName : "Old Testament",
+        bookName : [
             "Genesis",
             
             "Exodus",
@@ -23,19 +22,19 @@ let testament = [
             
             "1 Samuel",
             
-           " 2 Samuel",
+           "2 Samuel",
            
             "1 Kings",
             
-           " 2 Kings ",
+           "2 Kings",
            
-           " 1 Chronicles",
+           "1 Chronicles",
            
-           " 2 Chronicles",
+           "2 Chronicles",
            
-           " Ezra ",
+           "Ezra",
            
-           " Nehemiah",
+           "Nehemiah",
            
             "Esther",
             
@@ -61,7 +60,7 @@ let testament = [
             
             "Hosea",
             
-           " Joel",
+           "Joel",
            
             "Amos",
             
@@ -71,7 +70,7 @@ let testament = [
             
             "Micah",
             
-           " Nahum",
+           "Nahum",
            
             "Habakkuk",
             
@@ -87,8 +86,8 @@ let testament = [
     },
     {
         numb : 2, 
-        newTestName : "New Testament",
-        newBookName : [
+        TestName : "New Testament",
+        bookName : [
             "Matthew",
             "Mark",
             "Luke",
@@ -116,35 +115,9 @@ let testament = [
             "3 John",
             "Jude ",
             "Revelation"
-        ]
-    }
-]
+        ],
+    },
+  ];
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 

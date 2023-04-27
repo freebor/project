@@ -15,8 +15,8 @@ body{
 }
 
 .verse-chapter-hold.activeVerse,
-.testament.activeTestament,
 .book-chapter-hold.activeBookChapter,
+.testament.activeTestament,
 .new-chapters.activeNewChapter,
 .old-chapters.activeOldChapter{
     z-index: 5;
@@ -236,7 +236,7 @@ body{
     color: #fff;
 }
 
-.old-chapters h2{
+.old-chapters .test{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height: 16%;
@@ -260,7 +260,7 @@ body{
     background: var(--light);
 }
 
-.new-chapters h2{
+.new-chapters .test{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height: 16%;
@@ -304,7 +304,7 @@ body{
     transform: translate(-50%, -50%) scale(0.9);
 }
 
-.book-chapter-hold h2{
+.book-chapter-hold .chap-head{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -313,7 +313,7 @@ body{
     font-weight: 600;
     border-radius: 10px;
     width: 90%;
-    background-color: var(--dark);
+    background-color: var(--light);
     color: #fff;
     margin: 20px auto;
     user-select: none;
